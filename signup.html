@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+
+
+ 
+			
+			<div class="container">
+	<div class="header">
+		<h2>Create Account</h2>
+
+	</div>
+
+	<form id="form" class="form" action="" method="GET">
+	    <div class="form-control">
+			<label for="name">Name</label>
+			<input type="text" placeholder="Enter the name" id="name" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Username</label>
+			<input type="text" placeholder="Enter the username" id="username" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="email">Email</label>
+			<input type="email" placeholder="@gmail.com" id="email" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="phno">Phone Number</label>
+			<input type="number" placeholder="Enter the number" id="phno" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="password">Password</label>
+			<input type="password" placeholder=" Enter the Password" id="password"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="Confirmpassword">Password check</label>
+			<input type="password" placeholder="Confirm the password" id="cpassword"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<button><a href="#" > Submit</a></button>
+	</form>
+</div>
+
+
+<div class="btn">
+<button><a href="home.html">HOME</a></button>
+
+</div>
+
+<script>
+const form = document.getElementById('form');
+const name = document.getElementById('name');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const phno = document.getElementById('phno');
+const password = document.getElementById('password');
+const cpassword = document.getElementById('cpassword');
+
+form.addEventListener('submit', e => {
+	e.preventDefault();
+	
+	checkInputs();
+});
+
+function checkInputs() {
+	// trim to remove the whitespaces
+	const nameValue = name.value.trim();
+	const usernameValue = username.value.trim();
+	const emailValue = email.value.trim();
+	const phnoValue = phno.value.trim();
+	const passwordValue = password.value.trim();
+	const cpasswordValue = cpassword.value.trim();
+	
+	
+	if (nameValue==null || nameValue=="")
+	{
+	setErrorFor(name, 'Name cannot be blank pls fill it');
+	} else {
+		setSuccessFor(name);
+	}
+	
+	if(usernameValue === '') {
+		setErrorFor(username, 'Username cannot be blank pls fill it');
+	} else {
+		setSuccessFor(username);
+	}
+	
+	if(emailValue === '') {
+		setErrorFor(email, 'Email cannot be blank pls fill it');
+	} else if (!isEmail(emailValue)) {
+		setErrorFor(email, 'Not a valid email');
+	} else {
+		setSuccessFor(email);
+	}
+	
+	if(phnoValue === '') {
+		setErrorFor(phno, 'Phone number cannot be blank pls fill it');
+		
+	}
+
+
+	else {
+		setSuccessFor(phno);
+	}
+	
+	if(passwordValue === '') {
+		setErrorFor(password, 'Password cannot be blank pls fill it');
+	} else {
+		setSuccessFor(password);
+	}
+	
+	if(cpasswordValue === '') {
+		setErrorFor(cpassword, 'cPassword cannot be blank pls fill it');
+	} else if(passwordValue !== cpasswordValue) {
+		setErrorFor(cpassword, 'Passwords does not match');
+	} else{
+		setSuccessFor(cpassword);
+	}
+}
+
+function setErrorFor(input, message) {
+	const formControl = input.parentElement;
+	const small = formControl.querySelector('small');
+	formControl.className = 'form-control error';
+	small.innerText = message;
+}
+
+function setSuccessFor(input) {
+	const formControl = input.parentElement;
+	formControl.className = 'form-control success';
+}
+	
+function isEmail(email) {
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
+
+
+</script>
+
+
+</body>
+</html>

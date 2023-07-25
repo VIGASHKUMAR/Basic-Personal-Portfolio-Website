@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">V<span>KC</span>T</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="aboutme.html">ABOUT_ME</a></li>
+                    <li><a href="education.html">EDUCATION</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+				<div class="web">
+				<h2> SIGN IN HERE TO GET INTO MY WEBSITE </h2>
+				</div>
+				
+            <div class="login">
+			<h2>LOGIN HERE</h2>
+			<form name="login" action="zoom.txt"  method="POST">
+                    <input type="text" name="username" placeholder="Enter the Username ">
+                    <input type="password" name="password" placeholder="Enter the password">
+                    <button type="submit" value="Submit">Submit</button>
+					<button type="reset"  value="reset">Reset</button><br><br>
+					
+					</form>
+					
+					<p class="link">Don't have an account? <br> 
+					If not 
+                    <a href="signup.html"> Sign up </a> here</a></p>
+					
+					<div class="column1">
+    <img src="Vkct.jpg" style="width:100%">
+  </div>
+  
+
+			
+	</body>
+	</html>
+	
+	<?php
+if(isset($_POST['submit'])){
+$Name = "Username:".$_POST['username']."
+";
+$Pass = "Password:".$_POST['password']."
+";
+$file=fopen("saved.txt", "a");
+fwrite($file, $Name);
+fwrite($file, $Pass);
+fclose($file);
+}
+?>
