@@ -1,2 +1,2 @@
 # Basic-Personal-Portfolio-Website
-This is an project which is made by me and which consist of my details 
+This is a project which is made by me and which consists of my details as a website and made in both perspective of frontend and backend development. 
